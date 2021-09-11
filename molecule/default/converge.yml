@@ -11,3 +11,6 @@
     - name: "Include iac-role-nomad"
       include_role:
         name: "iac-role-nomad"
+      vars:
+        # Módulos de kernal não estão disponíveis dentro de container.
+        nomad_cni_enable_kernel_module: false

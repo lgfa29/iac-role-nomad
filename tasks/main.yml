@@ -37,6 +37,11 @@
 
 # CNI-plugin
 
+- name: "Habilitando módulo de kernel de rede em bridge"
+  community.general.modprobe:
+    name: br_netfilter
+    state: present
+  when: nomad_cni_enable_kernel_module
 - name: " Criando Diretorio para os plugins-CNI"
   ansible.builtin.file:
     path: /opt/cni/bin
